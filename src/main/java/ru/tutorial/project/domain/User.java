@@ -1,7 +1,5 @@
 package ru.tutorial.project.domain;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.util.Set;
 

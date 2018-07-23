@@ -5,9 +5,10 @@
     <title>Main</title>
 </head>
 <body>
-<h3>Login page</h3>
+<h2>Add new user</h2>
+<p>${message?if_exists}</p>
 <div>
-    <form action="login" method="post">
+    <form action="registration" method="post">
         <div><label>Username: <input type="text" name="username"></label></div>
         <div><label>Password: <input type="password" name="password"></label></div>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -15,7 +16,6 @@
             <button type="submit">Sing In</button>
         </div>
     </form>
-    <a href="registration">Add user</a>
 </div>
 
 </body>

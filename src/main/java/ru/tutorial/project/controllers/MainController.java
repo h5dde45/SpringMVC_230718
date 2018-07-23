@@ -10,7 +10,7 @@ import ru.tutorial.project.domain.Message;
 import ru.tutorial.project.repos.MessageRepo;
 
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private MessageRepo messageRepo;
 
