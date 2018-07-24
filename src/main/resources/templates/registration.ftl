@@ -2,7 +2,9 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
-<h2>Add new user</h2>
+<div class="mb-4">
+    <h2>Add new user</h2>
+</div>
 <p>${message?if_exists}</p>
-    <@l.login "registration"/>
+    <@l.login "registration" true/>
 </@c.page>

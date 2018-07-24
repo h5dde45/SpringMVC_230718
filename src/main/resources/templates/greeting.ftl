@@ -1,6 +1,7 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-<p>Hello, user</p>
-<a href="main">Main Page</a>
+<p>||||||||||||||||||||||||||||||||||||||||||||</p>
+<h2>Hello, user</h2>
+<p>||||||||||||||||||||||||||||||||||||||||||||</p>
 </@c.page>
