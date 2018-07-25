@@ -4,17 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.tutorial.project.domain.Role;
 import ru.tutorial.project.domain.User;
-import ru.tutorial.project.repos.UserRepo;
-
-import java.util.Collections;
+import ru.tutorial.project.service.UserService;
 
 @Controller
 public class RegistrationController {
     @Autowired
-    private UserRepo userRepo;
+    private UserService userService;
 
     @GetMapping(value = "registration")
     public String registration(){
@@ -23,16 +21,26 @@ public class RegistrationController {
 
     @PostMapping( "registration")
     public String addUser(User user, Model model){
-        User userFromDb = userRepo.findByUsername(user.getUsername());
 
-        if(userFromDb!=null) {
+        if(!userService.addUser(user)) {
             model.addAttribute("message","User exists...");
             return "registration";
         }
-        user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
 
-        userRepo.save(user);
         return "redirect:/login";
+    }
+
+    @GetMapping("activate/{code}")
+    public String activate(@PathVariable String code, Model model){
+
+        boolean isActivate=userService.activateUser(code);
+
+        if(isActivate){
+            model.addAttribute("message","The user is successfully activated");
+        }else{
+            model.addAttribute("message","Activation code not found..");
+        }
+
+        return "login";
     }
 }
