@@ -11,6 +11,7 @@
           crossorigin="anonymous">
 
     <link href="/static/style.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <#include "navbar.ftl">
