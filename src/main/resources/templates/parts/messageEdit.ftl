@@ -27,11 +27,11 @@
             <div class="form-group">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="customFile" name="file">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label class="custom-file-label" for="customFile">Choose file </label>
                 </div>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-            <input type="hidden" name="id" value="<#if message??>${message.id}</#if>"/>
+            <input type="hidden" name="id" value="<#if message??><#if message.id??>${message.id}</#if></#if>"/>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary ">Save message</button>
             </div>
