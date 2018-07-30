@@ -69,6 +69,7 @@ public class RegistrationController {
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
 
             model.mergeAttributes(errors);
+            model.addAttribute("user", null);
 
             return "registration";
         }
