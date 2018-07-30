@@ -74,7 +74,7 @@
     </#if>
 
     <button type="submit" class="btn btn-primary m-2  ">
-        <#if isRegisterForm>Cteate<#else >   Sing In</#if>
+        <#if isRegisterForm>Cteate<#else >   Sign In</#if>
     </button>
 </form>
 </#macro>
