@@ -99,7 +99,7 @@ public class UserService implements UserDetailsService{
     }
 
     public void updateProfile(User user, String password, String email) {
-        String userEmail = user.getEmail();
+            String userEmail = user.getEmail();
 
         boolean isEmailChanged = (email != null && !email.equals(userEmail)) ||
                 (userEmail != null && !userEmail.equals(email));
@@ -113,7 +113,8 @@ public class UserService implements UserDetailsService{
         }
 
         if (!StringUtils.isEmpty(password)) {
-            user.setPassword(password);
+            user.setPassword(passwordEncoder.encode(password));
+//            user.setPassword(password);
         }
 
         userRepo.save(user);
